@@ -54,13 +54,14 @@ namespace TAAMeatShields
             if (thing == null) throw new ArgumentNullException(nameof(thing));
             if (!(thing is Pawn pawn))
             {
-                return thing.def.fillPercent * thing.def.race.baseBodySize; 
+                return thing.def.fillPercent; 
             }
 
             var bodyType = pawn.story?.bodyType;
-
             var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
-            return fp ?? pawn.def.fillPercent; 
+            var coverOut = (pawn.def.fillPercent * thing.def.race.baseBodySize);
+            if (coverOut > 0.99f) { coverOut = 0.99f; }
+            return fp ?? coverOut;
 
         }
 

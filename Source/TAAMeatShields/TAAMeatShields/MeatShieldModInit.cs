@@ -24,10 +24,18 @@ namespace TAAMeatShields
         static MeatShieldModInit() // The one true constructor.
         {
             if (Settings.bodyTypeCoverEffectiveness == null || Settings.bodyTypeCoverEffectiveness.Count == 0) {
-                Settings.bodyTypeCoverEffectiveness = new Dictionary<BodyTypeDef,float>();
+                Settings.bodyTypeCoverEffectiveness = new Dictionary<string, float>();
                 foreach (BodyTypeDef bd in DefDatabase<BodyTypeDef>.AllDefsListForReading)
                 {
-                    Settings.bodyTypeCoverEffectiveness.Add(bd,bd.GetModExtension<BodyTypeDefExtension>().fillPercent);
+                    Settings.bodyTypeCoverEffectiveness.Add(bd.defName,bd.GetModExtension<BodyTypeDefExtension>().fillPercent);
+                }
+            }
+
+            foreach (ThingDef td in DefDatabase<ThingDef>.AllDefsListForReading)
+            {
+                if (td.defName.Contains("Corpse_") && td.race != null && td.race.thinkTreeMain.defName == "Humanlike")
+                {
+                    td.fillPercent = 0.2f;
                 }
             }
         }

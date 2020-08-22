@@ -20,22 +20,20 @@ namespace TAAMeatShields
         {
             Settings = GetSettings<MeatShieldModSettings>();
         }
-
+        
         public override void DoSettingsWindowContents(Rect inRect)
         {
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
 
-            listingStandard.Label($"{"CoverEffectiveness".Translate()}: {Settings.coverEffectiveness.ToString("P0")}");
-            Settings.coverEffectiveness = listingStandard.Slider(Settings.coverEffectiveness, 0f, 0.99f);
-
-            foreach (KeyValuePair<BodyTypeDef,float> bd in Settings.bodyTypeCoverEffectiveness.ToArray())
+            foreach (KeyValuePair<string,float> bd in Settings.bodyTypeCoverEffectiveness.ToArray())
             {
+                BodyTypeDef loadedDef  = DefDatabase<BodyTypeDef>.GetNamedSilentFail(bd.Key);
                 var val = bd.Value;
                 listingStandard.GapLine();
-                listingStandard.Label($"{bd.Key.defName}: {val.ToString("P0")}");
+                listingStandard.Label($"{loadedDef.defName}: {val.ToString("P0")}");
                 val = listingStandard.Slider(val, 0f, 0.99f);
-                bd.Key.GetModExtension<BodyTypeDefExtension>().fillPercent = bd.Value;
+                loadedDef.GetModExtension<BodyTypeDefExtension>().fillPercent = bd.Value;
                 Settings.bodyTypeCoverEffectiveness[bd.Key] = val;
             }
 
@@ -58,7 +56,7 @@ namespace TAAMeatShields
     {
         public float coverEffectiveness = 0.3f;
 
-        public Dictionary<BodyTypeDef,float> bodyTypeCoverEffectiveness;
+        public Dictionary<string, float> bodyTypeCoverEffectiveness;
 
         public override void ExposeData()
         {
