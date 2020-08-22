@@ -1,0 +1,73 @@
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Humanoid Alien Races 2.0</li>
+				</mods>
+				<match Class="PatchOperationAdd">
+					<success>Normal</success>
+					<xpath>Defs/ThingDef[@Name="BasePawn"]</xpath>
+					<value>
+						<fillPercent>0.3</fillPercent>
+					</value>
+				</match>
+				<nomatch Class="PatchOperationAdd">
+					<success>Normal</success>
+					<xpath>Defs/ThingDef[defName="Human"]</xpath>
+					<value>
+						<fillPercent>0.3</fillPercent>
+					</value>
+				</nomatch>
+			</li>
+		
+			<li Class="PatchOperationAdd">
+				<success>Normal</success>
+				<xpath>/Defs/ThingDef[defName[contains(text(), "Corpse_")]]</xpath>
+				<value>
+					<fillPercent>0.2</fillPercent>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/BodyTypeDef[defName="Thin"]</xpath>
+				<value>
+					<li Class="TAAMeatShields.BodyTypeDefExtension">
+						<fillPercent>0.3</fillPercent>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/BodyTypeDef[defName="Female"]</xpath>
+				<value>
+					<li Class="TAAMeatShields.BodyTypeDefExtension">
+						<fillPercent>0.5</fillPercent>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/BodyTypeDef[defName="Male"]</xpath>
+				<value>
+					<li Class="TAAMeatShields.BodyTypeDefExtension">
+						<fillPercent>0.5</fillPercent>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/BodyTypeDef[defName="Hulk"]</xpath>
+				<value>
+					<li Class="TAAMeatShields.BodyTypeDefExtension">
+						<fillPercent>0.8</fillPercent>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/BodyTypeDef[defName="Fat"]</xpath>
+				<value>
+					<li Class="TAAMeatShields.BodyTypeDefExtension">
+						<fillPercent>0.8</fillPercent>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>
