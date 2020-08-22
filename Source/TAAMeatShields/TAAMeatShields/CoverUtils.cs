@@ -18,7 +18,7 @@ namespace TAAMeatShields
             {
                 if (_fillPercentageSettingMult == null)
                 {
-                    var ms = LoadedModManager.GetMod<MeatShieldMod>().Settings.coverEffectiveness;
+                    var ms = LoadedModManager.GetMod<MeatShieldMod>().Settings.coverEffectiveness;  
                     _fillPercentageSettingMult = ms; 
                 }
 
@@ -54,7 +54,7 @@ namespace TAAMeatShields
             if (thing == null) throw new ArgumentNullException(nameof(thing));
             if (!(thing is Pawn pawn))
             {
-                return thing.def.fillPercent; 
+                return thing.def.fillPercent * thing.def.race.baseBodySize; 
             }
 
             var bodyType = pawn.story?.bodyType;
