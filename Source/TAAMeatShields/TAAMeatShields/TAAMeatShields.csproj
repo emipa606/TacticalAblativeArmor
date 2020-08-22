@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>C:\Users\Micah\.nuget\packages\lib.harmony\2.0.0.8\lib\net472\0Harmony.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -138,6 +135,7 @@
   <ItemGroup>
     <Compile Include="BodyTypeDefExtension.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="CoverRegisterComp.cs" />
     <Compile Include="CoverUtils.cs" />
     <Compile Include="ModInitializationException.cs" />
     <Compile Include="MeatShieldModInit.cs" />

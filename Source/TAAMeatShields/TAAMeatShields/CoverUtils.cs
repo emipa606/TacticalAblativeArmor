@@ -34,6 +34,8 @@ namespace TAAMeatShields
         }
 
 
+      
+
         public static FillCategory GetFillage([NotNull] this Thing thing)
         {
             if (thing == null) throw new ArgumentNullException(nameof(thing));
@@ -65,17 +67,29 @@ namespace TAAMeatShields
 
         }
 
-        public static FillCategory GetFillageDef([NotNull] this ThingDef thingDef)
+        public static FillCategory GetFillagePawn([NotNull] this Pawn pawn)
         {
-            if (thingDef == null) throw new ArgumentNullException(nameof(thingDef));
-            if (typeof(Pawn).IsAssignableFrom(thingDef.thingClass))
+            if (pawn == null) throw new ArgumentNullException(nameof(pawn));
+            var fp = GetFillPercentPawn(pawn);
+            if (fp < 0.01f)
             {
-                var fp = FillPercentageMult;
-
-                
+                return FillCategory.None;
             }
+            if (fp > 0.99f)
+            {
+                return FillCategory.Full;
+            }
+            return FillCategory.Partial;
+        }
 
-            return thingDef.Fillage; 
+        public static float GetFillPercentPawn([NotNull] this Pawn pawn)
+        {
+
+            var bodyType = pawn.story?.bodyType;
+            var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
+            var coverOut = (pawn.def.fillPercent * pawn.def.race.baseBodySize);
+            if (coverOut > 0.99f) { coverOut = 0.99f; }
+            return fp ?? coverOut;
 
         }
     }
