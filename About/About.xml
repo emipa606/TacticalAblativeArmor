@@ -37,7 +37,7 @@ Requires Harmony.
 Please report any issues on the github issue tracker.
  
 	</description>
-	<packageId>tachyonite.meatshields</packageId>
+	<packageId>tachyonite.meatshieldsdev</packageId>
 	<modDependencies>
 		<li>
 			<packageId>brrainz.harmony</packageId>
