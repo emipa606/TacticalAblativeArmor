@@ -9,24 +9,16 @@
 					<success>Normal</success>
 					<xpath>Defs/ThingDef[@Name="BasePawn"]</xpath>
 					<value>
-						<fillPercent>0.3</fillPercent>
+						<fillPercent>0.5</fillPercent>
 					</value>
 				</match>
 				<nomatch Class="PatchOperationAdd">
 					<success>Normal</success>
 					<xpath>Defs/ThingDef[defName="Human"]</xpath>
 					<value>
-						<fillPercent>0.3</fillPercent>
+						<fillPercent>0.5</fillPercent>
 					</value>
 				</nomatch>
-			</li>
-		
-			<li Class="PatchOperationAdd">
-				<success>Normal</success>
-				<xpath>/Defs/ThingDef[defName[contains(text(), "Corpse_")]]</xpath>
-				<value>
-					<fillPercent>0.2</fillPercent>
-				</value>
 			</li>
 			<li Class="PatchOperationAddModExtension">
 				<xpath>/Defs/BodyTypeDef[defName="Thin"]</xpath>
