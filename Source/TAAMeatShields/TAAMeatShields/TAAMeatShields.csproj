@@ -137,6 +137,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="CoverRegisterComp.cs" />
     <Compile Include="CoverUtils.cs" />
+    <Compile Include="HPatches\ProjectilePatches.cs" />
     <Compile Include="ModInitializationException.cs" />
     <Compile Include="MeatShieldModInit.cs" />
     <Compile Include="MeatShieldMod.cs" />
@@ -149,5 +150,6 @@
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
