@@ -1,4 +1,7 @@
 # Changelog for TacticalAblativeArmor
 
+1.0.2.0 - Added french translation, thanks qux
+
+
 1.0.1.0 - Updated to 1.3, fixed HAR patch
 

@@ -10,11 +10,11 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2205528109
 	
 ![Image](https://i.imgur.com/NOW7jU1.png)
 
-Introducing the latest mobile armor technology on the rim -- people! That&apos;s right, you can now take cover behind your own fellow man.
+Introducing the latest mobile armor technology on the rim -- people! That's right, you can now take cover behind your own fellow man.
 	
 # Tactical Ablative Armor
 
-(In other words, meat shields, but they don&apos;t need to know that)
+(In other words, meat shields, but they don't need to know that)
  
 All humanoid pawns now provide cover for adjacent pawns. The amount of cover provided depends on the body type of the pawn.
  
@@ -26,7 +26,7 @@ By default, these values are:
  
 These values (including bodyTypes added by other mods) are tweakable in the mod settings, up to a maximum of 99% cover. Downed pawns also provide this cover, however corpses do not (yet).
  
-I highly suggest giving good armor to your meat shields. While this doesn&apos;t increase the cover they provide, it does improve their survivability. Also, give them red shirts.
+I highly suggest giving good armor to your meat shields. While this doesn't increase the cover they provide, it does improve their survivability. Also, give them red shirts.
  
 # Integrations
 
@@ -42,7 +42,7 @@ Incompatible with Combat Extended. It overhauls the whole cover system, so we wi
 
 https://github.com/Tachyonite/TacticalAblativeArmor/issues]![Image](https://imgur.com/ovjNXjq.png)
 
-Click the header or go to: https://github.com/Tachyonite/TacticalAblativeArmor/issues. Please check that the issue you&apos;re facing doesn&apos;t already exist.
+Click the header or go to: https://github.com/Tachyonite/TacticalAblativeArmor/issues. Please check that the issue you're facing doesn't already exist.
 
 https://discord.gg/Av65yVq]![Image](https://imgur.com/vnWtzqS.jpg)
 

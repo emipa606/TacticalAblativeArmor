@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Tactical Ablative Armor (Meat Shields) (Continued)</name>
   <packageId>Mlie.TacticalAblativeArmor</packageId>
@@ -38,10 +38,10 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2205528109
 [/table]
 	
 [img]https://i.imgur.com/NOW7jU1.png[/img]
-Introducing the latest mobile armor technology on the rim -- people! That&apos;s right, you can now take cover behind your own fellow man.
+Introducing the latest mobile armor technology on the rim -- people! That's right, you can now take cover behind your own fellow man.
 	
 [h1]Tactical Ablative Armor[/h1]
-(In other words, meat shields, but they don&apos;t need to know that)
+(In other words, meat shields, but they don't need to know that)
  
 All humanoid pawns now provide cover for adjacent pawns. The amount of cover provided depends on the body type of the pawn.
  
@@ -53,7 +53,7 @@ By default, these values are:
  
 These values (including bodyTypes added by other mods) are tweakable in the mod settings, up to a maximum of 99% cover. Downed pawns also provide this cover, however corpses do not (yet).
  
-I highly suggest giving good armor to your meat shields. While this doesn&apos;t increase the cover they provide, it does improve their survivability. Also, give them red shirts.
+I highly suggest giving good armor to your meat shields. While this doesn't increase the cover they provide, it does improve their survivability. Also, give them red shirts.
  
 [h1]Integrations[/h1]
 Humanoid Alien Races: Adds a default cover provider for alien races. 
@@ -65,7 +65,7 @@ Requires Harmony.
 Incompatible with Combat Extended. It overhauls the whole cover system, so we will not be making it work. As far as I know, CE does this anyway.
 
 [url=https://github.com/Tachyonite/TacticalAblativeArmor/issues][img]https://imgur.com/ovjNXjq.png[/img][/url]
-Click the header or go to: https://github.com/Tachyonite/TacticalAblativeArmor/issues. Please check that the issue you&apos;re facing doesn&apos;t already exist.
+Click the header or go to: https://github.com/Tachyonite/TacticalAblativeArmor/issues. Please check that the issue you're facing doesn't already exist.
 
 [url=https://discord.gg/Av65yVq][img]https://imgur.com/vnWtzqS.jpg[/img][/url]
 (Server primarily for [url=https://discord.gg/Av65yVq]Pawnmorpher[/url], but has a section for this mod!)
@@ -84,4 +84,3 @@ Any donations are exceedingly appreciated!
 [/list]
 </description>
 </ModMetaData>
-
