@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Tactical Ablative Armor (Meat Shields)</name>
+  <author>Mic, Iron Wolf, ThePheonix</author>
+  <supportedVersions>
+    <li>1.1</li>
+    <li>1.2</li>
+  </supportedVersions>
+  <description>Introducing the latest mobile armor technology on the rim -- people! That's right, you can now take cover behind your own fellow man.
+	
+&lt;size=24&gt;Tactical Ablative Armor&lt;/size&gt;
+ 
+(In other words, meat shields, but they don't need to know that)
+ 
+All humanoid pawns now provide cover for adjacent pawns. The amount of cover provided depends on the body type of the pawn.
+ 
+By default, these values are:
+ 
+ - Fat/Hulk: 90% cover
+ - Male/Female: 50% cover
+ - Thin: 30% cover
+ 
+These values (including bodyTypes added by other mods) are tweakable in the mod settings, up to a maximum of 99% cover. Downed pawns also provide this cover, however corpses do not (yet).
+ 
+I highly suggest giving good armor to your meat shields. While this doesn't increase the cover they provide, it does improve their survivability. Also, give them red shirts.
+ 
+&lt;size=24&gt;Integrations&lt;/size&gt;
+ 
+Humanoid Alien Races: Adds a default cover provider for alien races. 
+ 
+&lt;size=24&gt;Dependencies&lt;/size&gt;
+ 
+Requires Harmony.
+ 
+&lt;size=24&gt;Issues&lt;/size&gt;
+ 
+Please report any issues on the github issue tracker.
+ 
+	</description>
+  <packageId>tachyonite.meatshields</packageId>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadBefore>
+  </loadBefore>
+  <loadAfter>
+    <li>erdelf.HumanoidAlienRaces</li>
+  </loadAfter>
+</ModMetaData>

@@ -7,6 +7,6 @@ namespace TAAMeatShields
 {
     public class BodyTypeDefExtension : DefModExtension
     {
-        public float fillPercent = 0.1f; 
+        public float fillPercent = 0.1f;
     }
 }

@@ -1,6 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-    <MeatShieldModName>Tactical Ablative Armor</MeatShieldModName>
-    <CoverEffectiveness>Default cover effectiveness</CoverEffectiveness>
-    <DownPenalty>Downed Penalty - divides cover by this amount when TAA is downed (0: Disable | 1: No Effect)</DownPenalty>
-    <DeadPenalty>Dead Penalty - divides cover by this amount when TAA is dead (0: Disable | 1: No Effect)</DeadPenalty>
+  <MeatShieldModName>Tactical Ablative Armor</MeatShieldModName>
+  <CoverEffectiveness>Default cover effectiveness</CoverEffectiveness>
+  <DownPenalty>Downed Penalty - divides cover by this amount when TAA is downed (0: Disable | 1: No Effect)</DownPenalty>
+  <DeadPenalty>Dead Penalty - divides cover by this amount when TAA is dead (0: Disable | 1: No Effect)</DeadPenalty>
 </LanguageData>

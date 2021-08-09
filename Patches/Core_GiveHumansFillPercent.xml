@@ -1,65 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationFindMod">
-				<mods>
-					<li>Humanoid Alien Races 2.0</li>
-				</mods>
-				<match Class="PatchOperationAdd">
-					<success>Normal</success>
-					<xpath>Defs/ThingDef[@Name="BasePawn"]</xpath>
-					<value>
-						<fillPercent>0.5</fillPercent>
-					</value>
-				</match>
-				<nomatch Class="PatchOperationAdd">
-					<success>Normal</success>
-					<xpath>Defs/ThingDef[defName="Human"]</xpath>
-					<value>
-						<fillPercent>0.5</fillPercent>
-					</value>
-				</nomatch>
-			</li>
-			<li Class="PatchOperationAddModExtension">
-				<xpath>/Defs/BodyTypeDef[defName="Thin"]</xpath>
-				<value>
-					<li Class="TAAMeatShields.BodyTypeDefExtension">
-						<fillPercent>0.3</fillPercent>
-					</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAddModExtension">
-				<xpath>/Defs/BodyTypeDef[defName="Female"]</xpath>
-				<value>
-					<li Class="TAAMeatShields.BodyTypeDefExtension">
-						<fillPercent>0.5</fillPercent>
-					</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAddModExtension">
-				<xpath>/Defs/BodyTypeDef[defName="Male"]</xpath>
-				<value>
-					<li Class="TAAMeatShields.BodyTypeDefExtension">
-						<fillPercent>0.5</fillPercent>
-					</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAddModExtension">
-				<xpath>/Defs/BodyTypeDef[defName="Hulk"]</xpath>
-				<value>
-					<li Class="TAAMeatShields.BodyTypeDefExtension">
-						<fillPercent>0.9</fillPercent>
-					</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAddModExtension">
-				<xpath>/Defs/BodyTypeDef[defName="Fat"]</xpath>
-				<value>
-					<li Class="TAAMeatShields.BodyTypeDefExtension">
-						<fillPercent>0.9</fillPercent>
-					</li>
-				</value>
-			</li>
-		</operations>
-	</Operation>
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationFindMod">
+        <mods>
+          <li>Humanoid Alien Races 2.0</li>
+          <li>Humanoid Alien Races</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+          <success>Normal</success>
+          <xpath>Defs/ThingDef[@Name="BasePawn"]</xpath>
+          <value>
+            <fillPercent>0.5</fillPercent>
+          </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+          <success>Normal</success>
+          <xpath>Defs/ThingDef[defName="Human"]</xpath>
+          <value>
+            <fillPercent>0.5</fillPercent>
+          </value>
+        </nomatch>
+      </li>
+      <li Class="PatchOperationAddModExtension">
+        <xpath>/Defs/BodyTypeDef[defName="Thin"]</xpath>
+        <value>
+          <li Class="TAAMeatShields.BodyTypeDefExtension">
+            <fillPercent>0.3</fillPercent>
+          </li>
+        </value>
+      </li>
+      <li Class="PatchOperationAddModExtension">
+        <xpath>/Defs/BodyTypeDef[defName="Female"]</xpath>
+        <value>
+          <li Class="TAAMeatShields.BodyTypeDefExtension">
+            <fillPercent>0.5</fillPercent>
+          </li>
+        </value>
+      </li>
+      <li Class="PatchOperationAddModExtension">
+        <xpath>/Defs/BodyTypeDef[defName="Male"]</xpath>
+        <value>
+          <li Class="TAAMeatShields.BodyTypeDefExtension">
+            <fillPercent>0.5</fillPercent>
+          </li>
+        </value>
+      </li>
+      <li Class="PatchOperationAddModExtension">
+        <xpath>/Defs/BodyTypeDef[defName="Hulk"]</xpath>
+        <value>
+          <li Class="TAAMeatShields.BodyTypeDefExtension">
+            <fillPercent>0.9</fillPercent>
+          </li>
+        </value>
+      </li>
+      <li Class="PatchOperationAddModExtension">
+        <xpath>/Defs/BodyTypeDef[defName="Fat"]</xpath>
+        <value>
+          <li Class="TAAMeatShields.BodyTypeDefExtension">
+            <fillPercent>0.9</fillPercent>
+          </li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
 </Patch>
