@@ -24,20 +24,26 @@
   <incompatibleWith>
     <li>CETeam.CombatExtended</li>
   </incompatibleWith>
-  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
 Update of Mic, Iron Wolf, ThePheonixs mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2205528109
 
-[img]https://i.imgur.com/7Gzt3Rg.png[/img]
+- French translation added, thanks qux!
+
+[img]https://i.imgur.com/pufA0kM.png[/img]
 
 [table]
     [tr]
         [td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
         [td][url=https://github.com/emipa606/TacticalAblativeArmor][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
     [/tr]
+    [tr]
+        [td][img]https://i.imgur.com/WjDSfUn.png[/img][/td]
+        [td][img]https://i.imgur.com/Be8E2qJ.png[/img][/td]
+    [/tr]
 [/table]
 	
-[img]https://i.imgur.com/NOW7jU1.png[/img]
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
 Introducing the latest mobile armor technology on the rim -- people! That's right, you can now take cover behind your own fellow man.
 	
 [h1]Tactical Ablative Armor[/h1]
@@ -64,16 +70,7 @@ Requires Harmony.
 [h1]Incompatibilities[/h1]
 Incompatible with Combat Extended. It overhauls the whole cover system, so we will not be making it work. As far as I know, CE does this anyway.
 
-[url=https://github.com/Tachyonite/TacticalAblativeArmor/issues][img]https://imgur.com/ovjNXjq.png[/img][/url]
-Click the header or go to: https://github.com/Tachyonite/TacticalAblativeArmor/issues. Please check that the issue you're facing doesn't already exist.
-
-[url=https://discord.gg/Av65yVq][img]https://imgur.com/vnWtzqS.jpg[/img][/url]
-(Server primarily for [url=https://discord.gg/Av65yVq]Pawnmorpher[/url], but has a section for this mod!)
-
-[url=ko-fi.com/mikerobe][img]https://imgur.com/mzgM027.png[/img][/url]
-Any donations are exceedingly appreciated!
-
-[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[img]https://i.imgur.com/PwoNOj4.png[/img]
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
