@@ -4,26 +4,25 @@
 using HarmonyLib;
 using Verse;
 
-namespace TAAMeatShields.HPatches
+namespace TAAMeatShields.HPatches;
+
+[HarmonyPatch(typeof(Projectile))]
+internal static class ProjectilePatches
 {
-    [HarmonyPatch(typeof(Projectile))]
-    internal static class ProjectilePatches
+    private const float FORCE_MISS_RADIUS = 2;
+
+    [HarmonyPatch("CanHit")]
+    private static void CanHitPostfix(ref bool __result, Projectile __instance, Thing thing)
     {
-        private const float FORCE_MISS_RADIUS = 2;
-
-        [HarmonyPatch("CanHit")]
-        private static void CanHitPostfix(ref bool __result, Projectile __instance, Thing thing)
+        if (!__result || thing == __instance.intendedTarget)
         {
-            if (!__result || thing == __instance.intendedTarget)
-            {
-                return;
-            }
+            return;
+        }
 
-            var adj = thing.Position.AdjacentToDiagonal(__instance.Launcher.Position);
-            if (adj)
-            {
-                __result = false;
-            }
+        var adj = thing.Position.AdjacentToDiagonal(__instance.Launcher.Position);
+        if (adj)
+        {
+            __result = false;
         }
     }
 }

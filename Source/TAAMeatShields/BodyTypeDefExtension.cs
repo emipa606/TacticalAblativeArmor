@@ -3,10 +3,9 @@
 
 using Verse;
 
-namespace TAAMeatShields
+namespace TAAMeatShields;
+
+public class BodyTypeDefExtension : DefModExtension
 {
-    public class BodyTypeDefExtension : DefModExtension
-    {
-        public float fillPercent = 0.1f;
-    }
+    public float fillPercent = 0.1f;
 }

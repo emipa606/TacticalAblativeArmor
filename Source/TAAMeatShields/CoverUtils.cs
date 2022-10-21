@@ -5,120 +5,110 @@ using System;
 using JetBrains.Annotations;
 using Verse;
 
-namespace TAAMeatShields
+namespace TAAMeatShields;
+
+public static class CoverUtils
 {
-    public static class CoverUtils
+    private static float? _fillPercentageSettingMult;
+
+    private static float FillPercentageMult
     {
-        private static float? _fillPercentageSettingMult;
-
-        private static float FillPercentageMult
+        get
         {
-            get
+            if (_fillPercentageSettingMult != null)
             {
-                if (_fillPercentageSettingMult != null)
-                {
-                    return _fillPercentageSettingMult.Value;
-                }
-
-                var ms = LoadedModManager.GetMod<MeatShieldMod>().Settings.coverEffectiveness;
-                _fillPercentageSettingMult = ms;
-
                 return _fillPercentageSettingMult.Value;
             }
+
+            var ms = LoadedModManager.GetMod<MeatShieldMod>().Settings.coverEffectiveness;
+            _fillPercentageSettingMult = ms;
+
+            return _fillPercentageSettingMult.Value;
+        }
+    }
+
+    public static float BaseBlockChance([NotNull] this Thing thing)
+    {
+        if (thing == null)
+        {
+            throw new ArgumentNullException(nameof(thing));
         }
 
-        public static float BaseBlockChance([NotNull] this Thing thing)
+        return thing.GetFillage() == FillCategory.Full ? 0.75f : thing.GetFillPercentage();
+    }
+
+
+    public static FillCategory GetFillage([NotNull] this Thing thing)
+    {
+        if (thing == null)
         {
-            if (thing == null)
-            {
-                throw new ArgumentNullException(nameof(thing));
-            }
-
-            if (thing.GetFillage() == FillCategory.Full)
-            {
-                return 0.75f;
-            }
-
-            return thing.GetFillPercentage();
+            throw new ArgumentNullException(nameof(thing));
         }
 
-
-        public static FillCategory GetFillage([NotNull] this Thing thing)
+        var fp = thing.GetFillPercentage();
+        switch (fp)
         {
-            if (thing == null)
-            {
-                throw new ArgumentNullException(nameof(thing));
-            }
-
-            var fp = thing.GetFillPercentage();
-            if (fp < 0.01f)
-            {
+            case < 0.01f:
                 return FillCategory.None;
-            }
-
-            if (fp > 0.99f)
-            {
+            case > 0.99f:
                 return FillCategory.Full;
-            }
+            default:
+                return FillCategory.Partial;
+        }
+    }
 
-            return FillCategory.Partial;
+    public static float GetFillPercentage([NotNull] this Thing thing)
+    {
+        if (thing == null)
+        {
+            throw new ArgumentNullException(nameof(thing));
         }
 
-        public static float GetFillPercentage([NotNull] this Thing thing)
+        if (thing is not Pawn pawn)
         {
-            if (thing == null)
-            {
-                throw new ArgumentNullException(nameof(thing));
-            }
-
-            if (!(thing is Pawn pawn))
-            {
-                return thing.def.fillPercent;
-            }
-
-            var bodyType = pawn.story?.bodyType;
-            var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
-            var coverOut = pawn.def.fillPercent * thing.def.race.baseBodySize;
-            if (coverOut > 0.99f)
-            {
-                coverOut = 0.99f;
-            }
-
-            return fp ?? coverOut;
+            return thing.def.fillPercent;
         }
 
-        public static FillCategory GetFillagePawn([NotNull] this Pawn pawn)
+        var bodyType = pawn.story?.bodyType;
+        var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
+        var coverOut = pawn.def.fillPercent * thing.def.race.baseBodySize;
+        if (coverOut > 0.99f)
         {
-            if (pawn == null)
-            {
-                throw new ArgumentNullException(nameof(pawn));
-            }
+            coverOut = 0.99f;
+        }
 
-            var fp = GetFillPercentPawn(pawn);
-            if (fp < 0.01f)
-            {
+        return fp ?? coverOut;
+    }
+
+    public static FillCategory GetFillagePawn([NotNull] this Pawn pawn)
+    {
+        if (pawn == null)
+        {
+            throw new ArgumentNullException(nameof(pawn));
+        }
+
+        var fp = GetFillPercentPawn(pawn);
+        switch (fp)
+        {
+            case < 0.01f:
                 return FillCategory.None;
-            }
-
-            if (fp > 0.99f)
-            {
+            case > 0.99f:
                 return FillCategory.Full;
-            }
-
-            return FillCategory.Partial;
+            default:
+                return FillCategory.Partial;
         }
+    }
 
-        public static float GetFillPercentPawn([NotNull] this Pawn pawn)
+    public static float GetFillPercentPawn([NotNull] this Pawn pawn)
+    {
+        var bodyType = pawn.story?.bodyType;
+        var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
+        var coverOut = pawn.def.fillPercent * pawn.def.race.baseBodySize;
+        if (coverOut > 0.99f)
         {
-            var bodyType = pawn.story?.bodyType;
-            var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
-            var coverOut = pawn.def.fillPercent * pawn.def.race.baseBodySize;
-            if (coverOut > 0.99f)
-            {
-                coverOut = 0.99f;
-            }
-
-            return fp ?? coverOut;
+            coverOut = 0.99f;
         }
+
+        return fp ?? coverOut;
     }
 }

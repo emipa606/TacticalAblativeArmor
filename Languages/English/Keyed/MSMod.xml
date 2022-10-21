@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <MeatShieldModversion>Installed mod-version: {0}</MeatShieldModversion>
   <MeatShieldModName>Tactical Ablative Armor</MeatShieldModName>
   <CoverEffectiveness>Default cover effectiveness</CoverEffectiveness>
   <DownPenalty>Downed Penalty - divides cover by this amount when TAA is downed (0: Disable | 1: No Effect)</DownPenalty>

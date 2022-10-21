@@ -4,90 +4,89 @@
 using System.Reflection;
 using Verse;
 
-namespace TAAMeatShields
+namespace TAAMeatShields;
+
+[StaticConstructorOnStartup]
+public class CoverRegisterComp : ThingComp
 {
-    [StaticConstructorOnStartup]
-    public class CoverRegisterComp : ThingComp
+    private const int TICK_PERIOD = 100;
+
+    private IntVec3? _lastPos;
+
+    private bool? _movingLast;
+
+    private Pawn _pPawn;
+
+    static CoverRegisterComp()
     {
-        private const int TICK_PERIOD = 100;
+        RecalculateCellMethod =
+            typeof(CoverGrid).GetMethod("RecalculateCell", BindingFlags.Instance | BindingFlags.NonPublic);
+        ArgArr = new object[2];
+    }
 
-        private IntVec3? _lastPos;
+    private static object[] ArgArr { get; }
+    private Pawn Parent => _pPawn ?? (_pPawn = (Pawn)parent);
 
-        private bool? _movingLast;
+    private bool ShouldBeCover => Parent.GetFillagePawn() != FillCategory.None;
 
-        private Pawn _pPawn;
 
-        static CoverRegisterComp()
+    // private void RecalculateCell(IntVec3 c, Thing ignoreThing = null)       
+
+    private static MethodInfo RecalculateCellMethod { get; }
+
+    private void RecalculateCell(IntVec3 cell, CoverGrid grid)
+    {
+        ArgArr[0] = cell;
+        RecalculateCellMethod.Invoke(grid, ArgArr);
+    }
+
+
+    public override void PostSpawnSetup(bool respawningAfterLoad)
+    {
+        base.PostSpawnSetup(respawningAfterLoad);
+        _lastPos = Parent.Position;
+    }
+
+    public override void CompTick()
+    {
+        base.CompTick();
+
+        if (!parent.IsHashIntervalTick(TICK_PERIOD) || !ShouldBeCover)
         {
-            RecalculateCellMethod =
-                typeof(CoverGrid).GetMethod("RecalculateCell", BindingFlags.Instance | BindingFlags.NonPublic);
-            ArgArr = new object[2];
+            return;
         }
 
-        private static object[] ArgArr { get; }
-        private Pawn Parent => _pPawn ?? (_pPawn = (Pawn) parent);
-
-        private bool ShouldBeCover => Parent.GetFillagePawn() != FillCategory.None;
-
-
-        // private void RecalculateCell(IntVec3 c, Thing ignoreThing = null)       
-
-        private static MethodInfo RecalculateCellMethod { get; }
-
-        private void RecalculateCell(IntVec3 cell, CoverGrid grid)
+        var map = parent.Map;
+        if (map == null)
         {
-            ArgArr[0] = cell;
-            RecalculateCellMethod.Invoke(grid, ArgArr);
+            return;
         }
 
-
-        public override void PostSpawnSetup(bool respawningAfterLoad)
+        var movingNow = Parent.pather.MovingNow;
+        if (movingNow != _movingLast)
         {
-            base.PostSpawnSetup(respawningAfterLoad);
-            _lastPos = Parent.Position;
-        }
+            _movingLast = movingNow;
 
-        public override void CompTick()
-        {
-            base.CompTick();
-
-            if (!parent.IsHashIntervalTick(TICK_PERIOD) || !ShouldBeCover)
+            if (movingNow && _lastPos != null)
             {
-                return;
+                RecalculateCell(_lastPos.Value, map.coverGrid);
+                map.coverGrid.DeRegister(parent);
             }
-
-            var map = parent.Map;
-            if (map == null)
+            else
             {
-                return;
-            }
-
-            var movingNow = Parent.pather.MovingNow;
-            if (movingNow != _movingLast)
-            {
-                _movingLast = movingNow;
-
-                if (movingNow && _lastPos != null)
-                {
-                    RecalculateCell(_lastPos.Value, map.coverGrid);
-                    map.coverGrid.DeRegister(parent);
-                }
-                else
-                {
-                    _lastPos = Parent.Position;
-                    map.coverGrid.Register(parent);
-                }
-            }
-            else if (_lastPos != Parent.Position)
-            {
-                if (_lastPos != null)
-                {
-                    RecalculateCell(_lastPos.Value, map.coverGrid);
-                }
-
-                map.coverGrid.Register(Parent);
                 _lastPos = Parent.Position;
+                map.coverGrid.Register(parent);
             }
+        }
+        else if (_lastPos != Parent.Position)
+        {
+            if (_lastPos != null)
+            {
+                RecalculateCell(_lastPos.Value, map.coverGrid);
+            }
+
+            map.coverGrid.Register(Parent);
+            _lastPos = Parent.Position;
         }
     }
 }
