@@ -26,7 +26,7 @@ public static class MeatShieldPatcher
         FillPercentageTarget = typeof(ThingDef).GetField(nameof(ThingDef.fillPercent), attrs);
         BaseBlockChanceReplacer = typeof(CoverUtils).GetMethod(nameof(CoverUtils.BaseBlockChance));
         BaseBlockChanceTarget =
-            typeof(CoverUtility).GetMethod(nameof(CoverUtility.BaseBlockChance), new[] { typeof(ThingDef) });
+            typeof(CoverUtility).GetMethod(nameof(CoverUtility.BaseBlockChance), [typeof(ThingDef)]);
         FillageTarget = typeof(ThingDef)
             .GetProperty(nameof(ThingDef.Fillage),
                 attrs)
@@ -55,13 +55,13 @@ public static class MeatShieldPatcher
     private static MethodInfo FillageTarget { get; }
 
     private static Type[] TargetTypes { get; } =
-    {
+    [
         typeof(Projectile),
         typeof(CoverUtility),
         typeof(DebugOutputsGeneral),
         typeof(CoverGrid),
         typeof(ShotReport)
-    };
+    ];
 
     private static bool IsPatchable(MethodInfo info, Type gottenType)
     {
@@ -75,12 +75,7 @@ public static class MeatShieldPatcher
             return false;
         }
 
-        if (info.DeclaringType != gottenType)
-        {
-            return false;
-        }
-
-        return true;
+        return info.DeclaringType == gottenType;
     }
 
     private static void MassPatch(Harmony harmony)

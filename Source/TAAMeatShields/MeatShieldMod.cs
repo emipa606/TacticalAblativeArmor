@@ -18,8 +18,7 @@ public class MeatShieldMod : Mod
     {
         Settings = GetSettings<MeatShieldModSettings>();
         currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(
-                ModLister.GetActiveModWithIdentifier("Mlie.TacticalAblativeArmor"));
+            VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
 
