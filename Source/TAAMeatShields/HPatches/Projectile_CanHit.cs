@@ -6,13 +6,10 @@ using Verse;
 
 namespace TAAMeatShields.HPatches;
 
-[HarmonyPatch(typeof(Projectile))]
-internal static class ProjectilePatches
+[HarmonyPatch(typeof(Projectile), "CanHit")]
+internal static class Projectile_CanHit
 {
-    private const float FORCE_MISS_RADIUS = 2;
-
-    [HarmonyPatch("CanHit")]
-    private static void CanHitPostfix(ref bool __result, Projectile __instance, Thing thing)
+    private static void Postfix(ref bool __result, Projectile __instance, Thing thing)
     {
         if (!__result || thing == __instance.intendedTarget)
         {

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Tactical Ablative Armor (Meat Shields)</name>
   <author>Mic, Iron Wolf, ThePheonix</author>
@@ -8,7 +8,7 @@
   </supportedVersions>
   <description>Introducing the latest mobile armor technology on the rim -- people! That's right, you can now take cover behind your own fellow man.
 	
-&lt;size=24&gt;Tactical Ablative Armor&lt;/size&gt;
+&lt;size=24>Tactical Ablative Armor&lt;/size>
  
 (In other words, meat shields, but they don't need to know that)
  
@@ -24,15 +24,15 @@ These values (including bodyTypes added by other mods) are tweakable in the mod 
  
 I highly suggest giving good armor to your meat shields. While this doesn't increase the cover they provide, it does improve their survivability. Also, give them red shirts.
  
-&lt;size=24&gt;Integrations&lt;/size&gt;
+&lt;size=24>Integrations&lt;/size>
  
 Humanoid Alien Races: Adds a default cover provider for alien races. 
  
-&lt;size=24&gt;Dependencies&lt;/size&gt;
+&lt;size=24>Dependencies&lt;/size>
  
 Requires Harmony.
  
-&lt;size=24&gt;Issues&lt;/size&gt;
+&lt;size=24>Issues&lt;/size>
  
 Please report any issues on the github issue tracker.
  

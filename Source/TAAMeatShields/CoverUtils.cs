@@ -87,7 +87,7 @@ public static class CoverUtils
             throw new ArgumentNullException(nameof(pawn));
         }
 
-        var fp = GetFillPercentPawn(pawn);
+        var fp = getFillPercentPawn(pawn);
         switch (fp)
         {
             case < 0.01f:
@@ -99,7 +99,7 @@ public static class CoverUtils
         }
     }
 
-    public static float GetFillPercentPawn([NotNull] this Pawn pawn)
+    private static float getFillPercentPawn([NotNull] this Pawn pawn)
     {
         var bodyType = pawn.story?.bodyType;
         var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
