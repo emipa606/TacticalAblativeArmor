@@ -40,6 +40,7 @@ public class ModInitializationException : Exception
     /// </summary>
     /// <param name="serializationInfo">The serialization information.</param>
     /// <param name="streamingContext">The streaming context.</param>
+    [Obsolete("Obsolete")]
     protected ModInitializationException([NotNull] SerializationInfo serializationInfo,
         StreamingContext streamingContext) :
         base(serializationInfo, streamingContext)

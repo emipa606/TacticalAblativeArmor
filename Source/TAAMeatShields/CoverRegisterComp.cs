@@ -15,8 +15,6 @@ public class CoverRegisterComp : ThingComp
 
     private bool? _movingLast;
 
-    private Pawn _pPawn;
-
     static CoverRegisterComp()
     {
         RecalculateCellMethod =
@@ -25,7 +23,7 @@ public class CoverRegisterComp : ThingComp
     }
 
     private static object[] ArgArr { get; }
-    private Pawn Parent => _pPawn ?? (_pPawn = (Pawn)parent);
+    private Pawn Parent => field ?? (field = (Pawn)parent);
 
     private bool ShouldBeCover => Parent.GetFillagePawn() != FillCategory.None;
 
@@ -34,7 +32,7 @@ public class CoverRegisterComp : ThingComp
 
     private static MethodInfo RecalculateCellMethod { get; }
 
-    private void RecalculateCell(IntVec3 cell, CoverGrid grid)
+    private static void RecalculateCell(IntVec3 cell, CoverGrid grid)
     {
         ArgArr[0] = cell;
         RecalculateCellMethod.Invoke(grid, ArgArr);

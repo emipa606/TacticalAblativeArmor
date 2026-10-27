@@ -27,88 +27,94 @@ public static class CoverUtils
         }
     }
 
-    public static float BaseBlockChance([NotNull] this Thing thing)
+    extension([NotNull] Thing thing)
     {
-        if (thing == null)
+        public float BaseBlockChance()
         {
-            throw new ArgumentNullException(nameof(thing));
+            if (thing == null)
+            {
+                throw new ArgumentNullException(nameof(thing));
+            }
+
+            return thing.GetFillage() == FillCategory.Full ? 0.75f : thing.GetFillPercentage();
         }
 
-        return thing.GetFillage() == FillCategory.Full ? 0.75f : thing.GetFillPercentage();
+        public FillCategory GetFillage()
+        {
+            if (thing == null)
+            {
+                throw new ArgumentNullException(nameof(thing));
+            }
+
+            var fp = thing.GetFillPercentage();
+            switch (fp)
+            {
+                case < 0.01f:
+                    return FillCategory.None;
+                case > 0.99f:
+                    return FillCategory.Full;
+                default:
+                    return FillCategory.Partial;
+            }
+        }
+
+        public float GetFillPercentage()
+        {
+            if (thing == null)
+            {
+                throw new ArgumentNullException(nameof(thing));
+            }
+
+            if (thing is not Pawn pawn)
+            {
+                return thing.def.fillPercent;
+            }
+
+            var bodyType = pawn.story?.bodyType;
+            var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
+            var coverOut = pawn.def.fillPercent * thing.def.race.baseBodySize;
+            if (coverOut > 0.99f)
+            {
+                coverOut = 0.99f;
+            }
+
+            return fp ?? coverOut;
+        }
     }
 
 
-    public static FillCategory GetFillage([NotNull] this Thing thing)
+    extension([NotNull] Pawn pawn)
     {
-        if (thing == null)
+        public FillCategory GetFillagePawn()
         {
-            throw new ArgumentNullException(nameof(thing));
+            if (pawn == null)
+            {
+                throw new ArgumentNullException(nameof(pawn));
+            }
+
+            var fp = pawn.getFillPercentPawn();
+            switch (fp)
+            {
+                case < 0.01f:
+                    return FillCategory.None;
+                case > 0.99f:
+                    return FillCategory.Full;
+                default:
+                    return FillCategory.Partial;
+            }
         }
 
-        var fp = thing.GetFillPercentage();
-        switch (fp)
+        private float getFillPercentPawn()
         {
-            case < 0.01f:
-                return FillCategory.None;
-            case > 0.99f:
-                return FillCategory.Full;
-            default:
-                return FillCategory.Partial;
+            var bodyType = pawn.story?.bodyType;
+            var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
+            var coverOut = pawn.def.fillPercent * pawn.def.race.baseBodySize;
+            if (coverOut > 0.99f)
+            {
+                coverOut = 0.99f;
+            }
+
+            return fp ?? coverOut;
         }
-    }
-
-    public static float GetFillPercentage([NotNull] this Thing thing)
-    {
-        if (thing == null)
-        {
-            throw new ArgumentNullException(nameof(thing));
-        }
-
-        if (thing is not Pawn pawn)
-        {
-            return thing.def.fillPercent;
-        }
-
-        var bodyType = pawn.story?.bodyType;
-        var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
-        var coverOut = pawn.def.fillPercent * thing.def.race.baseBodySize;
-        if (coverOut > 0.99f)
-        {
-            coverOut = 0.99f;
-        }
-
-        return fp ?? coverOut;
-    }
-
-    public static FillCategory GetFillagePawn([NotNull] this Pawn pawn)
-    {
-        if (pawn == null)
-        {
-            throw new ArgumentNullException(nameof(pawn));
-        }
-
-        var fp = getFillPercentPawn(pawn);
-        switch (fp)
-        {
-            case < 0.01f:
-                return FillCategory.None;
-            case > 0.99f:
-                return FillCategory.Full;
-            default:
-                return FillCategory.Partial;
-        }
-    }
-
-    private static float getFillPercentPawn([NotNull] this Pawn pawn)
-    {
-        var bodyType = pawn.story?.bodyType;
-        var fp = bodyType?.GetModExtension<BodyTypeDefExtension>()?.fillPercent;
-        var coverOut = pawn.def.fillPercent * pawn.def.race.baseBodySize;
-        if (coverOut > 0.99f)
-        {
-            coverOut = 0.99f;
-        }
-
-        return fp ?? coverOut;
     }
 }

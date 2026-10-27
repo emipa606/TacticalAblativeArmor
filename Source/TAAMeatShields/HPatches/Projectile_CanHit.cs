@@ -9,7 +9,7 @@ namespace TAAMeatShields.HPatches;
 [HarmonyPatch(typeof(Projectile), "CanHit")]
 internal static class Projectile_CanHit
 {
-    private static void Postfix(ref bool __result, Projectile __instance, Thing thing)
+    public static void Postfix(ref bool __result, Projectile __instance, Thing thing)
     {
         if (!__result || thing == __instance.intendedTarget)
         {

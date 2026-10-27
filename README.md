@@ -1,15 +1,15 @@
 # [Tactical Ablative Armor (Meat Shields) (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2570381855)
 
-![Image](https://i.imgur.com/buuPQel.png)
+![Image](https://img.litet.net/logos/Info.png)
 
 Update of Mic, Iron Wolf, ThePheonixs mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2205528109
 
 - French translation added, thanks qux!
 
-![Image](https://i.imgur.com/pufA0kM.png)
+![Image](https://img.litet.net/logos/Notice.png)
 	
-![Image](https://i.imgur.com/Z4GOv8H.png)
+![Image](https://img.litet.net/logos/OriginalDescription.png)
 
 Introducing the latest mobile armor technology on the rim -- people! That's right, you can now take cover behind your own fellow man.
 	
@@ -41,13 +41,13 @@ Requires Harmony.
 
 Incompatible with Combat Extended. It overhauls the whole cover system, so we will not be making it work. As far as I know, CE does this anyway.
 
-![Image](https://i.imgur.com/PwoNOj4.png)
+![Image](https://img.litet.net/logos/ReportingIssues.png)
 
 
 
 -  See if the the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
--  Post your error-log using [HugsLib](https://steamcommunity.com/workshop/filedetails/?id=818773962) or the standalone [Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) and command Ctrl+F12
+-  Always post your log using the [Log Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404)
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
@@ -55,4 +55,4 @@ Incompatible with Combat Extended. It overhauls the whole cover system, so we wi
 
  
 
-[![Image](https://img.shields.io/github/v/release/emipa606/TacticalAblativeArmor?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2570381855) | tags:  alternate tactics
+[![Image](https://img.shields.io/github/v/release/emipa606/TacticalAblativeArmor?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2570381855) | alternate tactics
